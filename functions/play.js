@@ -41,6 +41,7 @@ module.exports = {
       message.client.queue.delete(message.guild.id);
     });
 
+    let playingMessage;
     const dispatcher = queue.connection
       .play(stream, { type: streamType })
       .on('finish', () => {
@@ -65,7 +66,7 @@ module.exports = {
     dispatcher.setVolumeLogarithmic(queue.volume / 100);
 
     try {
-      const playingMessage = await queue.textChannel
+      playingMessage = await queue.textChannel
         .send(`🎶 Started playing: **${song.title}** ${song.url}`);
       await playingMessage.react('⏭');
       await playingMessage.react('⏯');
@@ -78,7 +79,6 @@ module.exports = {
       console.error(error);
     }
     const filter = (reaction, user) => user.id !== message.client.user.id;
-    let playingMessage;
     const collector = playingMessage.createReactionCollector(filter, {
       time: song.duration > 0 ? song.duration * 1000 : 600000
     });
