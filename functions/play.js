@@ -10,7 +10,9 @@ module.exports = {
 
     if (!song) {
       setTimeout(() => {
-        if (queue.connection.dispatcher && message.guild.me.voice.channel) return;
+        if (queue.connection.dispatcher && message.guild.me.voice.channel) {
+          return;
+        }
         queue.channel.leave();
         queue.textChannel.send('Leaving voice channel...');
       }, STAY_TIME * 1000);

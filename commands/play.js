@@ -37,7 +37,7 @@ module.exports = {
         .reply('I cant speak in this channel, make sure I have permission');
 
     const search = args.join(' ');
-    const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
+    const videoPattern = /^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com)\/.+$/gi;
     const playlistPattern = /^.*(list=)([^#]*).*/gi;
     const url = args[0];
     const urlValid = videoPattern.test(args[0]);
