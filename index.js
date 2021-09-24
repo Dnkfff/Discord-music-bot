@@ -1,8 +1,8 @@
 'use strict';
 
 const { Client, Collection } = require('discord.js');
-const { readdirSync } = require('fs');
-const { join } = require('path');
+const fs = require('fs');
+const path = require('path');
 const { prefix, token } = require('./config.json');
 
 const client = new Client({ disableMentions: 'everyone' });
@@ -24,10 +24,11 @@ client.on('error', console.error);
 
 
 //Import all commands
-const commandFiles = readdirSync(join(__dirname, 'commands'))
+const commandFiles = fs.readdirSync(path.join(__dirname, 'commands'))
   .filter(file => file.endsWith('.js'));
+  
 for (const file of commandFiles) {
-  const command = require(join(__dirname, 'commands', `${file}`));
+  const command = require(path.join(__dirname, 'commands', `${file}`));
   client.commands.set(command.name, command);
 }
 
