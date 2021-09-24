@@ -4,7 +4,9 @@
 const { play } = require('../functions/play.js');
 const ytdl = require('ytdl-core');
 const YouTubeAPI = require('simple-youtube-api');
-const { YOUTUBE_API_KEY, DEFAULT_VOLUME } = require('../config.json');
+//const { YOUTUBE_API_KEY, DEFAULT_VOLUME } = require('../config.json');
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+const DEFAULT_VOLUME = process.env.DEFAULT_VOLUME;
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 
 module.exports = {

@@ -3,13 +3,14 @@
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const { prefix, token } = require('./config.json');
+const { prefix, token:TOKEN } = require('./config.json');
 
 const client = new Client({ disableMentions: 'everyone' });
+const token = process.env.TOKEN || TOKEN;
 
 client.login(token);
 client.commands = new Collection();
-client.prefix = prefix;
+client.prefix = prefix || process.env.PREFIX;
 client.queue = new Map();
 
 
