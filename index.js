@@ -10,7 +10,7 @@ const token = process.env.TOKEN;
 
 client.login(token);
 client.commands = new Collection();
-client.prefix = prefix || process.env.PREFIX;
+client.prefix = process.env.PREFIX;
 client.queue = new Map();
 
 
