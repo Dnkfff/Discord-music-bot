@@ -3,10 +3,10 @@
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
-const { prefix, token:TOKEN } = require('./config.json');
+//const { prefix, token:TOKEN } = require('./config.json');
 
 const client = new Client({ disableMentions: 'everyone' });
-const token = process.env.TOKEN || TOKEN;
+const token = process.env.TOKEN;
 
 client.login(token);
 client.commands = new Collection();
