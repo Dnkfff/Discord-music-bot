@@ -6,7 +6,7 @@ const STAY_TIME = 100;
 module.exports = {
   async play(song, message) {
 
-	const queue = message.client.queue.get(message.guild.id);
+    const queue = message.client.queue.get(message.guild.id);
 
     if (!song) {
       setTimeout(() => {
