@@ -7,6 +7,7 @@ const path = require('path');
 
 const client = new Client({ disableMentions: 'everyone' });
 const token = process.env.TOKEN;
+const prefix = process.env.PREFIX;
 
 client.login(token);
 client.commands = new Collection();
