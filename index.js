@@ -3,6 +3,7 @@
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const http = require('http');
 //const { prefix, token:TOKEN } = require('./config.json');
 
 const client = new Client({ disableMentions: 'everyone' });
@@ -57,3 +58,8 @@ client.on('message', async message => {
       .catch(console.error);
   }
 });
+
+http.createServer((req, res) => {
+	res.writeHead(5000);
+	res.end('I am medical-help-bot');
+  }).listen(PORT);
