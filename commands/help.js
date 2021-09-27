@@ -4,6 +4,6 @@ module.exports = {
   name: 'help',
   description: 'Help command',
   execute(message) {
-    message.channel.send('To play music write #play (track name/track YouTube url)');
+    message.channel.send('To play music write #play (track name');
   },
 };
