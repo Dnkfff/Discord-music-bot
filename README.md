@@ -1,4 +1,4 @@
-# Discord-music-bot
+# Discord-music-bot [NOT POWERED!]
 
 Simple discord music bot - playes music, responding with memes etc...
 
