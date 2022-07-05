@@ -1,0 +1,7 @@
+{
+	"comment": "refactor the code for server use",
+	"prefix": "/",
+	"token": "yourPersonalToken",
+	"YOUTUBE_API_KEY": "YourGuessWhatx)",
+	"DEFAULT_VOLUME": 80
+}
