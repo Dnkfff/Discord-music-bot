@@ -1,5 +1,3 @@
-'use strict';
-
 const { Client, Collection } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
