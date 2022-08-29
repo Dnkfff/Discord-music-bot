@@ -20,7 +20,6 @@ client.commands = new Collection();
 client.prefix = process.env.PREFIX;
 client.queue = new Map();
 
-
 //  Client Events
 client.on('ready', () => {
   console.log(`The bot is ready ready!`);
@@ -29,7 +28,6 @@ client.on('ready', () => {
 });
 client.on('warn', (info: any) => console.log(info));
 client.on('error', console.error);
-
 
 //Import commands
 const commandFiles = fs.readdirSync(path.join(__dirname, 'commands'))
