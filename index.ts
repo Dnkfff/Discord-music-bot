@@ -5,14 +5,15 @@ const fs = require('fs');
 const path = require('path');
 const http = require('http');
 const PORT = process.env.PORT;
-const { prefix } = require('./config.json');
 
 import dotenv from 'dotenv';
 dotenv.config();
 
 const client = new Client({ disableMentions: 'everyone' });
 const TOKEN = process.env.TOKEN;
-//const prefix = process.env.PREFIX;
+const prefix = process.env.PREFIX;
+
+console.log('the prefix is: ' + prefix)
 
 client.login(TOKEN);
 client.commands = new Collection();
@@ -20,7 +21,7 @@ client.prefix = process.env.PREFIX;
 client.queue = new Map();
 
 
-// Client Events
+//  Client Events
 client.on('ready', () => {
   console.log(`The bot is ready ready!`);
   client.user
@@ -30,7 +31,7 @@ client.on('warn', (info: any) => console.log(info));
 client.on('error', console.error);
 
 
-//Import all commands
+//Import commands
 const commandFiles = fs.readdirSync(path.join(__dirname, 'commands'))
   .filter((file: any) => file.endsWith('.js'));
 
@@ -63,7 +64,7 @@ client.on('messageCreate', async (message: any) => {
   }
 });
 
-// http.createServer((req, res) => {
-//   res.writeHead(200);
-//   res.end('I am Ukrainian music bot');
-// }).listen(PORT);
+http.createServer((req: any, res: any) => {
+  res.writeHead(200);
+  res.end('I am Ukrainian music bot');
+}).listen(PORT);

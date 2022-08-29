@@ -2,7 +2,7 @@
 
 
 const { play } = require('../functions/play.js');
-const ytdl = require('ytdl-core');
+import ytdl from'ytdl-core';
 const YouTubeAPI = require('simple-youtube-api');
 //const { YOUTUBE_API_KEY, DEFAULT_VOLUME } = require('../config.json');
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
@@ -13,8 +13,8 @@ module.exports = {
   name: 'play',
   cooldown: 3,
   aliases: ['p'],
-  description: 'Plays audio from YouTube',
-  async execute(message, args) {
+  description: 'Plays audio from YouTube and not only',
+  async execute(message: any, args: any) {
     const { channel } = message.member.voice;
 
     const serverQueue = message.client.queue.get(message.guild.id);
@@ -70,7 +70,7 @@ module.exports = {
           url: songInfo.videoDetails.video_url,
           duration: songInfo.videoDetails.lengthSeconds
         };
-      } catch (error) {
+      } catch (error: any) {
         console.error(error);
         return message.reply(error.message).catch(console.error);
       }
@@ -84,7 +84,7 @@ module.exports = {
           url: songInfo.videoDetails.video_url,
           duration: songInfo.videoDetails.lengthSeconds
         };
-      } catch (error) {
+      } catch (error: any) {
         console.error(error);
         return message.reply(error.message).catch(console.error);
       }

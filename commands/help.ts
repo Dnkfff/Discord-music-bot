@@ -3,7 +3,7 @@
 module.exports = {
   name: 'help',
   description: 'Help command',
-  execute(message) {
-    message.channel.send('To play music write: #play (track name)');
+  execute(message: any) {
+    message.channel.send('To play music write: *play (track name or URL)');
   },
 };
