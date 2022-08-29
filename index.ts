@@ -11,7 +11,7 @@ dotenv.config();
 
 const client = new Client({ disableMentions: 'everyone' });
 const TOKEN = process.env.TOKEN;
-const prefix = process.env.PREFIX;
+const prefix: any = process.env.PREFIX || '*';
 
 console.log('the prefix is: ' + prefix)
 
@@ -31,7 +31,7 @@ client.on('error', console.error);
 
 //Import commands
 const commandFiles = fs.readdirSync(path.join(__dirname, 'commands'))
-  .filter((file: any) => file.endsWith('.js'));
+  .filter((file: any) => file.endsWith('.ts'));
 
 for (const file of commandFiles) {
   const command = require(path.join(__dirname, 'commands', `${file}`));
