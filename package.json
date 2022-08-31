@@ -4,8 +4,8 @@
   "description": "DiscordMusicBot",
   "main": "index.js",
   "scripts": {
-    "test": "eslint .",
-    "start": "node index.js"
+    "test": "eslint \"**/*.{ts,tsx}\"",
+    "start": "ts-node index.ts"
   },
   "keywords": [],
   "author": "Danil",
