@@ -3,11 +3,21 @@
 const { Client, Collection } = require('discord.js');
 const { play } = require('../functions/play.js');
 import ytdl from'ytdl-core';
+const { REST } = require('@discordjs/rest');
 const YouTubeAPI = require('simple-youtube-api');
-//const { YOUTUBE_API_KEY, DEFAULT_VOLUME } = require('../config.json');
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const DEFAULT_VOLUME = process.env.DEFAULT_VOLUME;
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
+
+type queueConstruct = {
+  textChannel: any,
+  channel: any,
+  connection: any,
+  songs: any,
+  loop: boolean,
+  volume: any,
+  playing: boolean
+};
 
 module.exports = {
   name: 'play',
@@ -48,12 +58,13 @@ module.exports = {
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       return message.client.commands.get('playlist').execute(message, args);
     }
+    const songs: any[] = [];
 
-    const queueConstruct = {
+    const queueConstruct : queueConstruct = {
       textChannel: message.channel,
       channel,
       connection: null,
-      songs: [],
+      songs: songs,
       loop: false,
       volume: DEFAULT_VOLUME || 100,
       playing: true
