@@ -62,5 +62,5 @@ client.on('message', async message => {
 
 http.createServer((req, res) => {
   res.writeHead(200);
-  res.end('I am medical-help-bot');
+  res.end('I am Ukrainian music bot');
 }).listen(PORT);
