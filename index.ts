@@ -22,7 +22,7 @@ client.queue = new Map();
 
 //  Client Events
 client.on('ready', () => {
-  console.log(`The bot is ready ready!`);
+  console.log(`The bot is ready!`);
   client.user
     .setActivity(`${prefix}help and ${prefix}play`, { type: 'LISTENING' });
 });
