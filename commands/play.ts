@@ -1,29 +1,19 @@
 'use strict';
 
-const { Client, Collection } = require('discord.js');
-const { play } = require('../functions/play.js');
-import ytdl from'ytdl-core';
-const { REST } = require('@discordjs/rest');
+
+const { play } = require('../functions/play.ts');
 const YouTubeAPI = require('simple-youtube-api');
+//const { YOUTUBE_API_KEY, DEFAULT_VOLUME } = require('../config.json');
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const DEFAULT_VOLUME = process.env.DEFAULT_VOLUME;
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
-
-type queueConstruct = {
-  textChannel: any,
-  channel: any,
-  connection: any,
-  songs: any,
-  loop: boolean,
-  volume: any,
-  playing: boolean
-};
+const ytdl = require('erit-ytdl');
 
 module.exports = {
   name: 'play',
   cooldown: 3,
   aliases: ['p'],
-  description: 'Plays audio from YouTube and not only',
+  description: 'Plays audio from YouTube',
   async execute(message: any, args: any) {
     const { channel } = message.member.voice;
 
@@ -43,7 +33,7 @@ module.exports = {
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has('CONNECT'))
-      return message.reply('Cant connect to voice channel, no permissions');
+      return message.reply('Cant connect to voice channel,no permissions');
     if (!permissions.has('SPEAK'))
       return message
         .reply('I cant speak in this channel, make sure I have permission');
@@ -58,9 +48,8 @@ module.exports = {
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       return message.client.commands.get('playlist').execute(message, args);
     }
-    const songs: any[] = [];
-
-    const queueConstruct : queueConstruct = {
+    let songs: any[] = [];
+    const queueConstruct = {
       textChannel: message.channel,
       channel,
       connection: null,
@@ -114,7 +103,7 @@ module.exports = {
 
     try {
       queueConstruct.connection = await channel.join();
-      await queueConstruct.connection.voice.setSelfDeaf(true);
+      await queueConstruct.connection!.voice.setSelfDeaf(true);
       play(queueConstruct.songs[0], message);
     } catch (error) {
       console.error(error);

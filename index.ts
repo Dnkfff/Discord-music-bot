@@ -11,7 +11,7 @@ dotenv.config();
 
 const client = new Client({ disableMentions: 'everyone' });
 const TOKEN = process.env.TOKEN;
-const prefix: any = process.env.PREFIX || '*';
+const prefix: any = process.env.PREFIX
 
 console.log('the prefix is: ' + prefix)
 
