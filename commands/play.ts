@@ -33,7 +33,7 @@ module.exports = {
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has('CONNECT'))
-      return message.reply('Cant connect to voice channel,no permissions');
+      return message.reply('Cant connect to voice channel, no permissions');
     if (!permissions.has('SPEAK'))
       return message
         .reply('I cant speak in this channel, make sure I have permission');
@@ -44,6 +44,9 @@ module.exports = {
     const url = args[0];
     const urlValid = videoPattern.test(args[0]);
 
+      channel.join().then((connections : any) => {
+        message.guild.me.voice.setSelfDeaf(true); })
+
     // Start the playlist if playlist url was provided
     if (!videoPattern.test(args[0]) && playlistPattern.test(args[0])) {
       return message.client.commands.get('playlist').execute(message, args);
@@ -52,7 +55,7 @@ module.exports = {
     const queueConstruct = {
       textChannel: message.channel,
       channel,
-      connection: null,
+      connection: !null,
       songs: songs,
       loop: false,
       volume: DEFAULT_VOLUME || 100,
@@ -103,8 +106,9 @@ module.exports = {
 
     try {
       queueConstruct.connection = await channel.join();
-      await queueConstruct.connection!.voice.setSelfDeaf(true);
+      await queueConstruct.connection;
       play(queueConstruct.songs[0], message);
+      
     } catch (error) {
       console.error(error);
       message.client.queue.delete(message.guild.id);

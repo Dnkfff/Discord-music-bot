@@ -1,6 +1,6 @@
 'use strict';
 
-const ytdl = require('erit-ytdl');
+//const ytdl = require('erit-ytdl');
 const STAY_TIME = 100;
 
 module.exports = {
