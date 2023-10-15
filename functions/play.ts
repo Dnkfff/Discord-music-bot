@@ -1,9 +1,9 @@
-'use strict';
+// 'use strict';
 
-//const ytdl = require('erit-ytdl');
+const ytdl = require('erit-ytdl');
 const STAY_TIME = 100;
 
-module.exports = {
+export default {
   async play(song: any, message: any) {
 
     const queue = message.client.queue.get(message.guild.id);
@@ -184,3 +184,5 @@ module.exports = {
     });
   }
 };
+
+//export {};

@@ -9,7 +9,7 @@ const DEFAULT_VOLUME = process.env.DEFAULT_VOLUME;
 const youtube = new YouTubeAPI(YOUTUBE_API_KEY);
 const ytdl = require('erit-ytdl');
 
-module.exports = {
+export default {
   name: 'play',
   cooldown: 3,
   aliases: ['p'],

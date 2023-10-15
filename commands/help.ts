@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
   name: 'help',
   description: 'Help command',
   execute(message: any) {

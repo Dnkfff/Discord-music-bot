@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
   name: 'skip',
   aliases: ['s'],
   description: 'Skip the currently playing song',

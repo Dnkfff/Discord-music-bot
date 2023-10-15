@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
   name: 'server',
   description: 'information about server',
   execute(message: any) {

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = {
+export default {
   name: 'ping',
   description: 'Ping!',
   execute(message: any) {
