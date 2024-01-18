@@ -1,6 +1,5 @@
 'use strict';
 
-
 const { play } = require('../functions/play.ts');
 const YouTubeAPI = require('simple-youtube-api');
 //const { YOUTUBE_API_KEY, DEFAULT_VOLUME } = require('../config.json');

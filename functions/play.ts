@@ -3,8 +3,7 @@
 const ytdl = require('erit-ytdl');
 const STAY_TIME = 100;
 
-export default {
-  async play(song: any, message: any) {
+export default async function play(song: any, message: any) {
 
     const queue = message.client.queue.get(message.guild.id);
 
@@ -182,7 +181,4 @@ export default {
         playingMessage.delete({ timeout: 3000 }).catch(console.error);
       }
     });
-  }
 };
-
-//export {};
