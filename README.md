@@ -1,3 +1,3 @@
-# Discord-music-bot [NOT POWERED!] 🥱
+# Discord-music-bot🥱
 
 Simple discord music bot - playes music, sending cats...
