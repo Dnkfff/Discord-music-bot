@@ -1,3 +1,3 @@
-# Discord-music-bot🥱
+# Discord-music-bot🥱 Resurrect pls
 
 Simple discord music bot - playes music, sending cats...
