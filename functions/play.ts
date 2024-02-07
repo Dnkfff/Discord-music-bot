@@ -1,5 +1,4 @@
-// 'use strict';
-
+'use strict';
 const ytdl = require('erit-ytdl');
 const STAY_TIME = 100;
 
